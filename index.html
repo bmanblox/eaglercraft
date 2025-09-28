@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eaglercraft Launcher</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            background-color: #f7fafc;
+        }
+        .container {
+            text-align: center;
+            padding: 2rem;
+            max-width: 90%;
+            background-color: #ffffff;
+            border-radius: 1rem;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+        .launch-button {
+            padding: 1rem 3rem;
+            font-size: 1.25rem;
+            font-weight: 700;
+            border-radius: 0.5rem;
+            background-color: #4f46e5;
+            color: white;
+            transition: background-color 0.2s, transform 0.1s;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.06);
+            cursor: pointer;
+            border: none;
+        }
+        .launch-button:hover {
+            background-color: #4338ca;
+            transform: translateY(-1px);
+        }
+        .launch-button:active {
+            transform: translateY(1px);
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1 class="text-3xl font-bold text-gray-800 mb-4">Eaglercraft Client Launcher</h1>
+    <p class="text-gray-600 mb-6">Click the button below to launch the game in a new tab.</p>
+    
+    <button id="launch-button" class="launch-button">
+        Launch Eaglercraft (Full Screen)
+    </button>
+</div>
+
+<script>
+    const externalUrl = 'https://eaglercraft.com/mc/1.12.2-wasm/';
+    const launchButton = document.getElementById('launch-button');
+
+    const launchEaglercraft = () => {
+        // This opens the external URL in a new blank tab, achieving isolation.
+        window.open(externalUrl, '_blank');
+    };
+
+    launchButton.addEventListener('click', launchEaglercraft);
+</script>
+</body>
+</html>
