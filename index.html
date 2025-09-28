@@ -49,10 +49,10 @@
 
 <div class="container">
     <h1 class="text-3xl font-bold text-gray-800 mb-4">Eaglercraft Client Launcher</h1>
-    <p class="text-gray-600 mb-6">Click the button below to launch the game in a new tab.</p>
+    <p class="text-gray-600 mb-6">Click the button below to launch the game in an isolated tab.</p>
     
     <button id="launch-button" class="launch-button">
-        Launch Eaglercraft (Full Screen)
+        Launch Eaglercraft (About:Blank)
     </button>
 </div>
 
@@ -61,8 +61,13 @@
     const launchButton = document.getElementById('launch-button');
 
     const launchEaglercraft = () => {
-        // This opens the external URL in a new blank tab, achieving isolation.
-        window.open(externalUrl, '_blank');
+        // Opens the new tab, which initially results in an about:blank page.
+        const newWindow = window.open('', '_blank'); 
+        
+        // Sets the location of the new window to the target URL, maintaining the initial isolation.
+        if (newWindow) {
+            newWindow.location.href = externalUrl;
+        }
     };
 
     launchButton.addEventListener('click', launchEaglercraft);
