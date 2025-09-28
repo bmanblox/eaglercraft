@@ -18,11 +18,11 @@
         }
         .container {
             text-align: center;
-            padding: 2rem;
+            padding: 2.5rem;
             max-width: 90%;
             background-color: #ffffff;
             border-radius: 1rem;
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
         }
         .launch-button {
             padding: 1rem 3rem;
@@ -35,6 +35,8 @@
             box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.06);
             cursor: pointer;
             border: none;
+            display: block;
+            margin: 0 auto;
         }
         .launch-button:hover {
             background-color: #4338ca;
@@ -52,7 +54,7 @@
     <p class="text-gray-600 mb-6">Click the button below to launch the game in an isolated tab.</p>
     
     <button id="launch-button" class="launch-button">
-        Launch Eaglercraft (About:Blank)
+        Launch Eaglercraft (External)
     </button>
 </div>
 
@@ -64,7 +66,7 @@
         // Opens the new tab, which initially results in an about:blank page.
         const newWindow = window.open('', '_blank'); 
         
-        // Sets the location of the new window to the target URL, maintaining the initial isolation.
+        // Sets the location of the new window to the target URL.
         if (newWindow) {
             newWindow.location.href = externalUrl;
         }
